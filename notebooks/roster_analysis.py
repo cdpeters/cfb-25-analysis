@@ -98,7 +98,7 @@ def _(
 
     if running_locally:
         # Path to the project's `data` directory and the expected season directory (it might not exist).
-        _project_path = find_project_path("cfb-analysis")
+        _project_path = find_project_path("cfb-25-analysis")
         _data_path = _project_path / "data"
         season_path = _data_path / "images" / f"{university}" / f"{season}"
         roster = load_roster_locally(
@@ -1124,7 +1124,7 @@ def _(BytesIO, Path, httpx, mo, pl):
         try:
             # Github repo information.
             gh_user = "cdpeters"
-            gh_repo = "cfb-analysis"
+            gh_repo = "cfb-25-analysis"
             gh_branch = "main"
             gh_domain = "raw.githubusercontent.com"
 

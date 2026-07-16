@@ -75,7 +75,7 @@ def _(find_project_path, mo, pl, season_form):
     }
 
     # Path to the project's datadata directory.
-    _project_path = find_project_path("cfb-analysis")
+    _project_path = find_project_path("cfb-25-analysis")
     data_path = _project_path / "data"
 
     # Create the rostersrosters dictionary containing all the roster dataframes.

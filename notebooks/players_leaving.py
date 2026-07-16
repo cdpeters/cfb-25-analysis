@@ -68,7 +68,7 @@ def _(
     )
 
     # Path to the project's `data` directory.
-    _project_path = find_project_path("cfb-analysis")
+    _project_path = find_project_path("cfb-25-analysis")
     _data_path = _project_path / "data"
 
     for university in ("fresno_state", "san_diego_state", "stanford"):
