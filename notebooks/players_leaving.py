@@ -1,16 +1,14 @@
 import marimo
 
-__generated_with = "0.11.21"
-app = marimo.App(
-    width="medium",
-    css_file="",
-    html_head_file="",
-)
+__generated_with = "0.23.14"
+app = marimo.App(width="medium", css_file="", html_head_file="")
 
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(r"""## Process Players Leaving on Next Season's Roster""")
+    mo.md(r"""
+    ## Process Players Leaving on Next Season's Roster
+    """)
     return
 
 
@@ -78,12 +76,14 @@ def _(
             current_season=_current_season,
             schema_overrides=schema_overrides,
         )
-    return (university,)
+    return
 
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(r"""## Appendix""")
+    mo.md(r"""
+    ## Appendix
+    """)
     return
 
 
@@ -96,6 +96,7 @@ def _():
     from xlsxwriter import Workbook
 
     from utilities import find_project_path, schema_overrides
+
     return Path, Workbook, find_project_path, mo, pl, schema_overrides
 
 
@@ -161,7 +162,8 @@ def _(Path, Workbook, pl):
         with Workbook(roster_file_path) as rfp:
             for season, season_roster in rosters.items():
                 season_roster.write_excel(rfp, worksheet=season)
-    return PolarsDataType, create_next_season_initial_roster
+
+    return (create_next_season_initial_roster,)
 
 
 if __name__ == "__main__":

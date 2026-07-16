@@ -1,16 +1,14 @@
 import marimo
 
-__generated_with = "0.11.21"
-app = marimo.App(
-    width="medium",
-    css_file="",
-    html_head_file="",
-)
+__generated_with = "0.23.14"
+app = marimo.App(width="medium", css_file="", html_head_file="")
 
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(r"""# Roster Comparison""")
+    mo.md(r"""
+    # Roster Comparison
+    """)
     return
 
 
@@ -38,7 +36,9 @@ def _(mo):
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(r"""### Load Rosters and Combine Them""")
+    mo.md(r"""
+    ### Load Rosters and Combine Them
+    """)
     return
 
 
@@ -112,15 +112,7 @@ def _(find_project_path, mo, pl, season_form):
     )
 
     combined_roster
-    return (
-        class_enum,
-        combined_roster,
-        data_path,
-        dev_trait_enum,
-        season,
-        team_enum,
-        university,
-    )
+    return combined_roster, data_path, season
 
 
 @app.cell
@@ -142,12 +134,14 @@ def _(create_dev_trait_breakdown, data_path, df, season):
     fig = create_dev_trait_breakdown(df=df, season=season)
     fig.write_image(data_path / "images" / f"{season}_dev_trait_breakdown.png", scale=2)
     fig.show()
-    return (fig,)
+    return
 
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(r"""## Appendix""")
+    mo.md(r"""
+    ## Appendix
+    """)
     return
 
 
@@ -164,7 +158,7 @@ def _():
     import plotly.io as pio
 
     pl.Config.set_tbl_rows(20)
-    return Path, alt, find_project_path, go, mo, pio, pl
+    return find_project_path, go, mo, pl
 
 
 @app.cell
@@ -189,7 +183,7 @@ def _():
             "color_4": "#fee2e2",
         },
     }
-    return (university_colors,)
+    return
 
 
 @app.cell
@@ -240,6 +234,7 @@ def _(go, pl):
         )
 
         return fig
+
     return (create_dev_trait_breakdown,)
 
 
